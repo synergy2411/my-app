@@ -4,6 +4,8 @@ import { ObservableDemoComponent } from './observable-demo/observable-demo.compo
 import { SigninComponent } from './signin/signin.component';
 import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 import { ProductComponent } from './product/product.component';
+import { OverviewComponent } from './product/overview/overview.component';
+import { SpecComponent } from './product/spec/spec.component';
 
 export const APP_ROUTES : Routes = [{
     path : '',
@@ -11,7 +13,16 @@ export const APP_ROUTES : Routes = [{
     pathMatch : 'full'
 },{
     path : "product",
-    component : ProductComponent
+    component : ProductComponent,
+    children : [
+        {
+            path : "overview/:id",
+            component : OverviewComponent
+        },{
+            path : "spec",
+            component : SpecComponent
+        }
+    ]
 },{
     path : "observable",
     component : ObservableDemoComponent

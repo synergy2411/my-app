@@ -21,6 +21,8 @@ import { AuthInterceptor } from './services/auth-interceptor';
 import { LoggerInterceptor } from './services/logger-interceptor';
 import { ProductComponent } from './product/product.component';
 import { APP_ROUTES } from './app.routing';
+import { OverviewComponent } from './product/overview/overview.component';
+import { SpecComponent } from './product/spec/spec.component';
 
 @NgModule({
   declarations: [           //Component, Pipes , Directives
@@ -35,6 +37,8 @@ import { APP_ROUTES } from './app.routing';
     SigninComponent,
     ObservableDemoComponent,
     ProductComponent,
+    OverviewComponent,
+    SpecComponent,
   ],
   imports: [                //All modules : built-in & Custom
     BrowserModule,
