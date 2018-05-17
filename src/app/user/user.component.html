@@ -1,0 +1,83 @@
+<h1 class="text-primary">User component Loaded Successfully!!</h1>
+
+<h1>
+        Counter Value in UserComp : {{ ds.counter }}
+        <button (click)="increment()" class="btn btn-default"> Increment</button>
+</h1>
+
+<input type="text" (keyup)="onKeyup(childCtrl.value)" #childCtrl>
+
+<ng-content select="header"></ng-content>
+<ng-content select=".section"></ng-content>
+
+<div class="container">
+<ul class="list-unstyled">
+    <li class="well" *ngFor="let user of users; index as i; odd as isOdd; first as f">
+        <div class="row">
+            <div class="col-md-2 col-sm-2 xs-hidden">
+                #{{i}} Is Odd : {{isOdd}} Is First : {{f}}<br>
+                <img [src]="user.image" class="img-responsive">
+                <br>
+                <button type="button" 
+                    class="btn btn-info btn-sm"
+                    (click)="moreInfo(user)">
+                    More Info
+                </button>
+                <br>
+                
+            </div>
+            <div class="col-md-9 col-sm-9">
+                <!-- <h1 [ngClass]="['myColor','yourColor']">{{ user.firstName }} {{ user.lastName }}</h1> -->
+                <h1 [ngClass]="{'myColor' : true, 'yourColor' : condition}">
+                    {{ user.firstName | uppercase }} {{ user.lastName | uppercase}}
+                </h1>
+
+                <p [ngStyle]="{'color'  :'red', 'border' : borderStyle }">
+                    Date of Birth : {{ user.dob | date : 'MM/dd/yyyy'}} 
+                </p>
+
+                <!-- <p *ngIf="user.isWorking; else elseTemplate">Income : <span [innerHTML]="user.income"></span></p>
+                <ng-template [ngIf]="user.isWorking">
+                    <p>
+                        Income : <span [innerHTML]="user.income"></span>
+                    </p>
+                </ng-template> -->
+                <p *appUnless="!user.isWorking">
+                    Income : {{ user.income | currency : 'INR' }}
+                </p>
+                <p>Contact Details : {{ user.contact_no | countrycode : '80' }}</p>
+                <em myhighlight [defaultColor]="'green'" myNewColor="yellow">Total Votes : {{user.vote}}</em>
+                <!-- <input type="number" [value]="user.vote" 
+                    (change)="user.vote=$event.target.value"> -->
+                <input type="number" [(ngModel)]="user.vote">
+            </div>
+        </div>
+        <ng-template #elseTemplate>
+            <p>{{ user.firstName }} is not working now!</p>
+        </ng-template>
+        <div class="container">
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let comment of user.comments">
+                    Stars : {{ comment.stars }} <br>
+                    <blockquote>
+                        {{comment.body}}
+                        by 
+                        <cite> {{ comment.author }}</cite>
+                    </blockquote>
+                </li>
+            </ul>
+            <app-user-comment [comments]="user.comments"></app-user-comment>
+        </div>
+    </li>
+</ul>
+</div>
+
+<!-- {{users | json}} -->
+
+<ng-content select="footer"></ng-content>
+<!-- <div [ngSwitch]="">
+    <div ngSwitchCase=""></div>
+    <div ngSwitchCase=""></div>
+    <div ngSwitchCase=""></div>
+    <div ngSwitchDefault></div>
+</div> -->

@@ -1,0 +1,23 @@
+<p>
+  pipe-demo works!
+  Some Number Value : {{ someNumber |async }}
+</p>
+
+<input type="text" 
+  [(ngModel)]="filteredStatus"> 
+<br>
+<button class="btn-primary" 
+  (click)="addNewTodo()">Add New Todo</button>
+<hr>
+<div class="container">
+  <ul class="list-group">
+    <li class="list-group-item" 
+*ngFor="let todo of todos | myfilter : 
+  filteredStatus : 'status'">
+      {{todo.label}} 
+      <span class="badge">
+        {{todo.status}}
+      </span>
+    </li>
+  </ul>
+</div>

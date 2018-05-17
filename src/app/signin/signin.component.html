@@ -1,0 +1,36 @@
+<h1 class="text-primary text-center">Login Form</h1>
+<form class="well" [formGroup]="loginForm">
+  <div class="form-group">
+    <label for="username">Username :</label>
+    <input type="email" name="username" 
+      class="form-control" [formControl]="username">
+      <div [hidden]="username.valid || username.untouched">
+        Some Problem with Username!
+        <div [hidden]="!username.hasError('required')">
+          Username is mandatory field!
+        </div>
+        <div [hidden]="!username.hasError('minlength')">
+          Minimum required 5 charaters!
+        </div>
+      </div>
+  </div>
+  <div class="form-group">
+    <label for="password">Password :</label>
+    <input type="password" name="password" 
+      class="form-control"  [formControl]="password">
+      <div [hidden]="password.valid || password.untouched">
+        Some problem with Password!
+        <div [hidden]="!password.hasError('required')">
+          Password is mandatory field!
+        </div>
+        <div [hidden]="!password.hasError('needExclamation')">
+          Password should contain Exclamation Mark!
+        </div>
+      </div>
+  </div>
+  <button (click)="signup()" class="btn btn-primary"
+      [disabled]="!loginForm.valid">Sign Up</button>
+    <button class="btn btn-success" (click)="signIn()">Sign In</button>
+    <button class="btn btn-info" (click)="getData()">Get API Data</button>
+</form>
+
