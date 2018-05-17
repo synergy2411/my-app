@@ -14,10 +14,13 @@
         <li>
           <a [routerLink]="['observable']">Observable-demo</a>
         </li>
-        <li>
+        <li *ngIf="!authService.isAuthenticated()">
           <a [routerLink]="['login']">Login (API Hit)</a>
         </li>
-        <li>
+        <li *ngIf="authService.isAuthenticated()">
+            <a (click)="logout()">Logout (API Hit)</a>
+          </li>
+        <li *ngIf="authService.isAuthenticated()">
           <a [routerLink]="['pipe']">Pipe-demo</a>
         </li>
         <li>

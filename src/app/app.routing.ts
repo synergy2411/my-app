@@ -31,6 +31,10 @@ export const APP_ROUTES : Routes = [{
     path : "login",
     component : SigninComponent
 },{
+    path : "logout",
+    redirectTo : 'product',
+    pathMatch : 'full'
+},{
     path : 'pipe',
     component : PipeDemoComponent,
     canActivate : [LoginGaurd]

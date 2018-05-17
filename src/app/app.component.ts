@@ -3,6 +3,7 @@ import { User } from './model/user';
 import { DataService } from './services/data.service';
 //import { USER_DATA } from './data/mocks';
 import * as firebase from 'firebase';
+import { AuthService } from './services/auth-service';
 
 
 @Component({
@@ -15,8 +16,12 @@ export class AppComponent implements OnInit {
   data : string;
   users : User[];
   
-  constructor(public dataService : DataService){}
+  constructor(public dataService : DataService,
+              public authService : AuthService){}
 
+  logout(){
+    this.authService.signout();
+  }
   increment(){
     this.dataService.counter++;
   } 

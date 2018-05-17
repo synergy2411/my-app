@@ -38,4 +38,9 @@ return this.token;
     isAuthenticated(){
         return this.token != null;
     }
+
+    signout(){
+        firebase.auth().signOut();
+        this.token = null;
+    }
 }
