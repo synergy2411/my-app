@@ -12,8 +12,12 @@ export class OverviewComponent implements OnInit {
   constructor(private route : ActivatedRoute) { }
 
   ngOnInit() {
-    this.id = this.route.snapshot.params['id'];
-    this.name = this.route.snapshot.params['name'];
+    // this.id = this.route.snapshot.params['id'];
+    // this.name = this.route.snapshot.params['name'];
+    this.route.params.subscribe((params)=>{
+      this.id = params['id'];
+      this.name = params['name']
+    })
   }
 
 }

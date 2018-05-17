@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-observable-demo',
@@ -36,8 +37,14 @@ export class ObservableDemoComponent implements OnInit {
     (err)=>console.log(err),
     ()=>console.log("Completed!")
   )
-
-  constructor() { }
+  
+num1 : number;
+  constructor(private route : ActivatedRoute) {
+    this.route.queryParams.subscribe(params=>{
+      this.num1 = params['num'] 
+      console.log(this.num1)
+    })
+   }
 
   ngOnInit() {
     

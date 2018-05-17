@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { CustomerModule } from './customer/customer.module';
 
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
@@ -47,7 +48,8 @@ import { LoginGaurd } from './services/login-gaurd-service';
     ReactiveFormsModule,
     HttpModule,
     HttpClientModule,
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES),
+    CustomerModule
   ],
   providers: [ DataService, 
               AuthService,

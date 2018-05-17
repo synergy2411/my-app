@@ -12,7 +12,8 @@
           <a [routerLink]="['']">Home</a>
         </li>
         <li>
-          <a [routerLink]="['observable']">Observable-demo</a>
+          <a [routerLink]="['observable']" 
+              [queryParams]="{num : 10}">Observable-demo</a>
         </li>
         <li *ngIf="!authService.isAuthenticated()">
           <a [routerLink]="['login']">Login (API Hit)</a>
@@ -26,6 +27,9 @@
         <li>
           <a [routerLink]="['product']">Products</a>
         </li>
+        <li>
+            <a [routerLink]="['customer']">Customer</a>
+          </li>
     </ul>
       
 </div>

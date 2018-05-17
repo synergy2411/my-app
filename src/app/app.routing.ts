@@ -7,6 +7,7 @@ import { ProductComponent } from './product/product.component';
 import { OverviewComponent } from './product/overview/overview.component';
 import { SpecComponent } from './product/spec/spec.component';
 import { LoginGaurd } from './services/login-gaurd-service';
+import { CustomerComponent } from './customer/customer.component';
 
 export const APP_ROUTES : Routes = [{
     path : '',
@@ -38,6 +39,9 @@ export const APP_ROUTES : Routes = [{
     path : 'pipe',
     component : PipeDemoComponent,
     canActivate : [LoginGaurd]
+},{
+    path : "customer",
+    component : CustomerComponent
 },{
     path : "**",
     redirectTo : "product",

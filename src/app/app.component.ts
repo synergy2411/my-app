@@ -4,6 +4,7 @@ import { DataService } from './services/data.service';
 //import { USER_DATA } from './data/mocks';
 import * as firebase from 'firebase';
 import { AuthService } from './services/auth-service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,10 +18,12 @@ export class AppComponent implements OnInit {
   users : User[];
   
   constructor(public dataService : DataService,
-              public authService : AuthService){}
+              public authService : AuthService,
+              public router : Router){}
 
   logout(){
     this.authService.signout();
+    this.router.navigate(['/product']);
   }
   increment(){
     this.dataService.counter++;
