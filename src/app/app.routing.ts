@@ -6,6 +6,7 @@ import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 import { ProductComponent } from './product/product.component';
 import { OverviewComponent } from './product/overview/overview.component';
 import { SpecComponent } from './product/spec/spec.component';
+import { LoginGaurd } from './services/login-gaurd-service';
 
 export const APP_ROUTES : Routes = [{
     path : '',
@@ -16,7 +17,7 @@ export const APP_ROUTES : Routes = [{
     component : ProductComponent,
     children : [
         {
-            path : "overview/:id",
+            path : "overview/:id/:name",
             component : OverviewComponent
         },{
             path : "spec",
@@ -31,7 +32,8 @@ export const APP_ROUTES : Routes = [{
     component : SigninComponent
 },{
     path : 'pipe',
-    component : PipeDemoComponent
+    component : PipeDemoComponent,
+    canActivate : [LoginGaurd]
 },{
     path : "**",
     redirectTo : "product",

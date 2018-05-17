@@ -34,4 +34,8 @@ firebase.auth().currentUser.getIdToken()
     })
 return this.token;
 }
+
+    isAuthenticated(){
+        return this.token != null;
+    }
 }

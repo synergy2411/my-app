@@ -23,6 +23,7 @@ import { ProductComponent } from './product/product.component';
 import { APP_ROUTES } from './app.routing';
 import { OverviewComponent } from './product/overview/overview.component';
 import { SpecComponent } from './product/spec/spec.component';
+import { LoginGaurd } from './services/login-gaurd-service';
 
 @NgModule({
   declarations: [           //Component, Pipes , Directives
@@ -50,6 +51,7 @@ import { SpecComponent } from './product/spec/spec.component';
   ],
   providers: [ DataService, 
               AuthService,
+              LoginGaurd,
               {
                 provide : HTTP_INTERCEPTORS,
                 useClass : AuthInterceptor,
