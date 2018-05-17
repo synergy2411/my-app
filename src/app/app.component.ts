@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   data : string;
   users : User[];
   
-  constructor(private dataService : DataService){}
+  constructor(public dataService : DataService){}
 
   increment(){
     this.dataService.counter++;

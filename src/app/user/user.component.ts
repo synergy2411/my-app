@@ -46,25 +46,33 @@ export class UserComponent implements
     }
 
     constructor(public ds : DataService){
-        console.log("constructor called!");
+       // console.log("constructor called!");
     }
     ngOnInit(){
-        console.log("ngOnInit called!");
+        //console.log("ngOnInit called!");
     }
     ngOnChanges(changes : SimpleChanges){
-        console.log("ngOnChanges called!");
-        console.log(changes);
+       // console.log("ngOnChanges called!");
+       // console.log(changes);
     }
     ngDoCheck(){
-        console.log("ngDoCheck called!");
+       // console.log("ngDoCheck called!");
     }
     ngAfterContentInit(){
-        console.log("ngAfterContentInit called!")
+        //console.log("ngAfterContentInit called!")
     }
-    ngAfterContentChecked(){console.log("ngAfterContentChecked called!")}
-    ngAfterViewInit(){console.log("ngAfterViewInit called!")}
-    ngAfterViewChecked(){console.log("ngAfterViewChecked called!")}
-    ngOnDestroy(){console.log("ngOnDestroy called!")}
+    ngAfterContentChecked(){
+       // console.log("ngAfterContentChecked called!")
+    }
+    ngAfterViewInit(){
+        //console.log("ngAfterViewInit called!")
+    }
+    ngAfterViewChecked(){
+        //console.log("ngAfterViewChecked called!")
+    }
+    ngOnDestroy(){
+        //console.log("ngOnDestroy called!")
+    }
 
 
 

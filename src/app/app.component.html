@@ -2,10 +2,32 @@
 
 <!-- ng generate component <COMP_NAME> -->
 
+<!-- <div class="container">
+  <app-observable-demo></app-observable-demo>
+</div> -->
+
 <div class="container">
-  <!-- <app-observable-demo></app-observable-demo> -->
+    <ul class="nav navbar-nav navbar-default">
+        <li>
+          <a [routerLink]="['']">Home</a>
+        </li>
+        <li>
+          <a [routerLink]="['observable']">Observable-demo</a>
+        </li>
+        <li>
+          <a [routerLink]="['login']">Login (API Hit)</a>
+        </li>
+        <li>
+          <a [routerLink]="['pipe']">Pipe-demo</a>
+        </li>
+        <li>
+          <a [routerLink]="['product']">Products</a>
+        </li>
+    </ul>
+      
 </div>
 
+<router-outlet></router-outlet>
 
 <div>
   <h1>
@@ -16,22 +38,22 @@
     Counter Value in AppComp : {{ dataService.counter }}
     <button (click)="increment()" class="btn btn-default"> Increment</button>
   </h1>
-
+<!-- 
   <div class="container">
     <app-signin></app-signin>
   </div>
 
   <div class="container">
     <app-pipe-demo></app-pipe-demo>
-  </div>
+  </div> -->
 
   <hr>
   <br>
-  <!-- <user-comp [xyz]="users" (childEvent)="onChildEvent($event)">
-    <header #headers>Some Header Info header</header>
+  <user-comp [xyz]="users" (childEvent)="onChildEvent($event)">
+    <!-- <header #headers>Some Header Info header</header>
     <main class="section">Property in parent : {{ title }}</main>
-    <footer>Some Footer Info</footer>
-  </user-comp> -->
+    <footer>Some Footer Info</footer> -->
+  </user-comp>
 
   
   </div>
