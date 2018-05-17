@@ -43,6 +43,9 @@ export const APP_ROUTES : Routes = [{
     path : "customer",
     component : CustomerComponent
 },{
+    path : 'employee',
+    loadChildren : "app/employee/employee.module#EmployeeModule"
+},{
     path : "**",
     redirectTo : "product",
     pathMatch : 'full'
